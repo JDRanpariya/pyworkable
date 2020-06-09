@@ -88,7 +88,7 @@ class Workable(object):
         candidates = []
 
         for candidate in candidate_list:
-            detail = single_candidate_detail(candidate['id'], job)
+            detail = self.single_candidate_detail(candidate['id'], job)
             candidates.append(detail['candidate'])
         return candidates
 
@@ -124,7 +124,7 @@ class Workable(object):
             url = self.endpoints['jobs'] + '?state=' + state
         else:
             url = self.endpoints['jobs']
-        jobs = workable_depaginate(url, 'jobs')
+        jobs = self.workable_depaginate(url, 'jobs')
         return jobs
 
     def job_detail(self, job):
